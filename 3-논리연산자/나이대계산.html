@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+        var a = Number(prompt('나이를 입력해주세요',''));
+        
+        if(a>0 && a<=26/*a>=1*/){ // 1~26살까지 학생
+           alert("학생");
+        }else if(a>=27 && a<=36){ //27~36 직장인
+            alert("직장인");
+        }else if(a>36 && a<61){ //37~60부모님
+            alert("부모님");
+        }else if(a>60){ //61~노년기
+            alert("노년기");
+        }else{
+            alert("숫자가 아닙니다.")
+        }
+        
+    
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="dist/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+
+	<style>
+		*{margin:0; padding:0;}
+	</style>
+
+	<script src="../../../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+	<script src="dist/jquery.bxslider.js" type="text/javascript" text="javascript"></script>
+	<script>
+		$(function(){
+			//옵션을 추가할때는 ','를 작성해서 적용할것
+			/* 기본 슬라이드
+			$('.slide').bxSlider({
+				mode: 'horizontal', //슬라이드의 형태
+				captions: true, //이미지 하단에 있는 타이틀 박스<img src="" alt="" title="이미지 캡션">
+				slideWidth: 800, //슬라이드의 가로값
+				speed: 2000, //다음 슬라이드로 넘어갈때의 시간
+				auto :true, //오토 슬라이드
+				pause : 2000, //이미지가 자동으로 변화되는 시간
+				minSlides :2, //최소해상도에서 이미지가 보여지는 개수
+				maxSlides :4, //최대해상도에서 이미지가 보여지는 개수
+				moveSlides :1, //이미지가 움직이는 개수
+				slideMargin: 10 //이미지 사이의 여백(단위 쓰지 말것)
+
+				 //다음 슬라이드로 넘어갈때의 시간(ms)
+			});*/
+
+			//오토 슬라이드
+
+			$('.slide').bxSlider({
+			auto: true,
+			autoControls: true, //이미지 슬라이드 우측하단에 재생 / 일시정지 버튼
+			stopAutoOnClick: true, //클릭하면 자동이 일시정지
+			pager: true, //이미지 하단에 있는 버튼들
+			slideWidth: 600,//슬라이드의 가로값
+			speed : 2000,
+			maxSlides :1, //최대해상도에서 이미지가 보여지는 개수
+			minSlides :1 //최소해상도에서 이미지가 보여지는 개수
+			 
+			});
+		});
+	</script>
+
+ </head>
+ <body>
+  <div class="slide">
+  	<div><img src="img/1.png" alt="" title="이미지 캡션" /></div>
+	<div><img src="img/2.png" alt="" /></div>
+	<div><img src="img/3.png" alt="" /></div>
+	<div><img src="img/4.png" alt="" /></div>
+	<div><img src="img/1.png" alt="" /></div>
+	<div><img src="img/2.png" alt="" /></div>
+	<!-- <div><img src="img/3.png" alt="" /></div>
+	<div><img src="img/4.png" alt="" /></div> -->
+  </div>
+ </body>
+</html>

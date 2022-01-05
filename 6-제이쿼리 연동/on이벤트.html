@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+      *{margin:0; padding:0;}
+
+      div{width:100px;
+        height:100px;
+        background-color:#123456;
+        transition:0.8s;}
+    </style>
+
+
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+      $(function(){
+        //css복수적용 $("선택자").css({"속성":"속성값","속성":"속성값"});
+        //div의 background-color 수정,margin-left:200px; 추가
+
+          /*$("div").css({"background-color":"pink","margin-left":"200px"});*/
+
+          /*$("div").on("click",function(){
+              $("div").css({"background-color":"pink","margin-left":"200px"});
+          });*/
+
+          var a=0; //클릭하는 횟수가 담겨지는 변수명
+          var b=0; //홀짝판단해서 담을 변수명
+          
+          $("div").on("click",function(){
+            a++;
+            b=a%4;
+
+            if(b==1){
+              $("div").css({"margin-left":"200px","background-color":"skyblue"});
+            }else if(b==2){
+              $("div").css({"margin-top":"200px","background-color":"orange"});
+            }else if(b==3){
+              $("div").css({"margin-left":"0px","background-color":"olive"});  
+            }else{
+                $("div").css({"margin-top":"0px","background-color":"#123456"});
+            }
+          });
+          
+          
+          
+
+          /*$("div").on("click",function(){
+            a++;
+            b=a%2;
+
+            if(b==1){
+              $("div").css({"margin-left":"200px","background-color":"pink"});
+            }else{
+              $("div").css({"margin-left":"0","background-color":"#123456"});
+            }
+          });*/
+          
+
+      });
+
+
+    </script>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

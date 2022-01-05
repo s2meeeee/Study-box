@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding:0;}
+
+        section{height:400%;
+                position:relative;}
+
+        article{height:25%;
+                font-size:80px;
+                text-align:center;}
+
+        article:nth-child(1){background-color:violet;}
+        article:nth-child(2){background-color:darkgoldenrod;}
+        article:nth-child(3){background-color:darkcyan;}
+        article:nth-child(4){background-color:tomato;}
+    </style>
+
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            var a =$(window).height();
+            $("body").css("height",a);
+
+            $(window).resize(function(){
+                var a =$(window).height();
+                $("body").css("height",a);
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <section>
+        <article>article 1</article>
+        <article>article 2</article>
+        <article>article 3</article>
+        <article>article 4</article>
+    </section>
+</body>
+</html>

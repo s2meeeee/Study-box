@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        a{text-decoration: none; color:inherit;}
+        .clearfix::after{content: ""; display: block; clear:both;}
+
+        #wrap{width:100%;}
+
+        /* header */
+        #header_wrap{width:100%;
+                    height:70px;
+                    background-color:#ededed;}
+
+        header{width:1200px;
+            height:70px;
+            
+            margin:0 auto;}
+
+        #logo,nav li{float: left;}
+         nav{float:right;}
+
+        #logo{width:120px;
+            height:70px;
+            
+            text-align: center;
+            font-size:35px;
+            font-weight: bold;
+            line-height:70px;}
+
+        nav{width:40%;
+            height:70px;
+            
+            }
+
+        nav li{width:20%;
+            height:70px;
+            text-align: center;
+            line-height: 70px;
+            font-size:13px;
+            color:#999;
+            border-right:1px solid #999;
+            box-sizing:border-box;
+            transition:0.5s;}
+
+        nav li:nth-child(1){border-left:1px solid #999;}
+
+            nav li:hover,nav li.on{background-color:#141414; color:#fff;}
+        /* header */
+
+        /* article */
+        section,article{width:100%; height:600px;}
+        section{position:relative;}
+        
+        article{background-size: cover;
+                background-position: center;
+                position:absolute;
+                top:0;}
+        article:nth-child(1){background-image:url(img/work-1.jpg);}
+        article:nth-child(2){background-image:url(img/work-2.jpg);}
+        article:nth-child(3){background-image:url(img/work-3.jpg);}
+        article:nth-child(4){background-image:url(img/work-4.jpg);}
+        article:nth-child(5){background-image:url(img/work-5.jpg);}
+        /* article */
+
+        /* text */
+        .text{width:400px;
+            
+            color:#fff;
+            position:relative;
+            top:25%;
+            left:20%;}
+
+        .text h3{font-size:30px;}
+
+        .text p{margin-top:20px;}
+
+        .text span{display: block;
+            width:150px;
+            height:50px;
+            border:2px solid #fff;
+            box-sizing: border-box;
+            font-size:17px;
+            text-align: center;
+            line-height:46px;
+            margin-top:40px;}
+        /* text */
+    </style>
+
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            var $menu = $("nav li")
+            var $tab = $(".tab")
+
+
+            //a태그에 경로가 있을때
+            /*$menu.click(function(){
+                $menu.removeClass("on");
+                $(this).addClass("on");
+
+                $tab.hide();
+
+                var $target = $(this).find("a").attr("href");
+                $($target).show();
+            });*/
+
+            //a태그에 경로가 없을때
+
+            $menu.click(function(){
+                $menu.removeClass("on");
+                $(this).addClass("on");
+
+                $tab.hide();
+
+                var $Idx = $(this).index();
+                
+
+                $tab.eq($Idx).show();
+                console.log($Idx);
+            });
+
+            //.trigger() -> 강제로 제이쿼리를 실행하게 하는 것
+            //click이벤트와 짝꿍임
+            $menu.eq(0).trigger("click");
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <!-- header -->
+        <div id="header_wrap">
+            <header class="clearfix">
+                <div id="logo">LOGO</div>
+
+                <nav>
+                    <ul class="clearfix">
+                        <li><a href="#con_1"><h2>TAB 01</h2></a></li> <!--a 태그는 id만 가능하다.-->
+                        <li><a href="#con_2"><h2>TAB 02</h2></a></li>
+                        <li><a href="#con_3"><h2>TAB 03</h2></a></li>
+                        <li><a href="#con_4"><h2>TAB 04</h2></a></li>
+                        <li><a href="#con_5"><h2>TAB 05</h2></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <!-- header -->
+        <!-- section -->
+        <section>
+            <article id="con_1" class="tab">
+                <div class="text">
+                    <h3>TAB 01</h3>
+                    <p>まげすぎみんなは兎が?くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前?て出します。扉は一いう首のようをついてきまし。</p>
+                    <span><a href="#">READ MORE</a></span>
+                </div>
+
+            </article>
+
+            <article id="con_2" class="tab">
+                <div class="text">
+                    <h3>TAB 02</h3>
+                    <p>まげすぎみんなは兎が?くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前?て出します。扉は一いう首のようをついてきまし。</p>
+                    <span><a href="#">READ MORE</a></span>
+                </div>
+
+            </article>
+
+            <article id="con_3" class="tab">
+                <div class="text">
+                    <h3>TAB 03</h3>
+                    <p>まげすぎみんなは兎が?くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前?て出します。扉は一いう首のようをついてきまし。</p>
+                    <span><a href="#">READ MORE</a></span>
+                </div>
+
+            </article>
+
+            <article id="con_4" class="tab">
+                <div class="text">
+                    <h3>TAB 04</h3>
+                    <p>まげすぎみんなは兎が?くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前?て出します。扉は一いう首のようをついてきまし。</p>
+                    <span><a href="#">READ MORE</a></span>
+                </div>
+
+            </article>
+
+            <article id="con_5" class="tab">
+                <div class="text">
+                    <h3>TAB 05</h3>
+                    <p>まげすぎみんなは兎が?くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前?て出します。扉は一いう首のようをついてきまし。</p>
+                    <span><a href="#">READ MORE</a></span>
+                </div>
+
+            </article>
+        </section>
+    </div>
+</body>
+</html>

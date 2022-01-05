@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style>
+        *{margin:0; padding:0;}
+        
+        #box{width:100%;
+                height:600px;
+                background-color:firebrick;}
+        
+        p{width:400px;
+            height:200px;
+            background-color:dodgerblue;}
+    
+    </style>
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            $("#box h1").css({"font-size":"30px","color":"white"});
+            
+            //p 태그한테 width:100px,height:100px. background-color:#000
+            $("p").css({"width":"100px","height":"100px","background-color":"black"});
+            
+        });
+    </script>
+    
+</head>
+<body>
+    <div id="box">
+        <h1>제이쿼리 연동</h1>
+    </div>
+    
+    <p></p>
+    <!-- body하단에 제이쿼리 작성할때
+    <script>
+        //css에서 작성할때 : #box{background-color:속성값;}
+        
+        $("#box").css("background-color","olive");
+        
+        //css에서 작성할때 :#box h1{color:olive;}
+        $("#box h1").css("color","pink");
+    </script>
+    -->
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        .clearfix::after{content:""; display: block; clear: both;}
+
+        body{background-color:darkgray;}
+
+        header{width:100%;
+                height:70px;
+                background-color:#333;
+                }
+
+        #one{width:800px;
+            height:70px;
+            margin:0 auto;}
+
+        #one > li{float:left;}
+
+        #one li{width:200px;
+            height:70px;
+            text-align: center;
+            line-height: 70px;
+            font-size:20px;
+            color:cornsilk;}
+
+        .two{display: none;}
+
+
+    </style>
+
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            var $menu =$("#one li");
+            var $header = $("header");
+            var $header_height = $header.outerHeight(true);
+
+
+            $menu.mouseenter(function(){
+                var $sub_height = $(this).find(".two").outerHeight(true);
+                
+                $header.stop().animate({"height":$header_height + $sub_height + "px"},500);
+
+                $(this).find(".two").fadeIn();
+
+                console.log($header_height);
+            })
+
+            .mouseleave(function(){
+				$header.stop().animate({"height":$header_height + "px"},500);
+
+				$(this).find(".two").fadeOut();
+			});
+
+            
+            
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <ul id="one" class="clearfix">
+            <li>첫번째</li>
+                <ul class="two">
+                    <li>1-1</li>
+                </ul>
+            <li>두번째</li>
+                <ul class="two">
+                    <li>2-1</li>
+                    <li>2-2</li>
+                    <li>2-2</li>
+                </ul>
+            <li>세번째</li>
+                <ul class="two">
+                    <li>2-1</li>
+                    <li>2-2</li>
+                    <li>2-2</li>
+                    <li>2-2</li>
+                </ul>
+            <li>네번째</li>
+                <ul class="two">
+                    <li>2-1</li>
+                    <li>2-2</li>
+                </ul>
+
+        </ul>
+    </header>
+</body>
+</html>

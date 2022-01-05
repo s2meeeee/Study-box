@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+
+        body{overflow:hidden;}
+
+        section{height:400%;
+                position:relative;} /*전체감싸는 박스가 기준이니까 */
+
+        article{height:25%;
+                font-size:80px;
+                text-align:center;}
+
+        article:nth-child(1){background-color:violet;}
+        article:nth-child(2){background-color:darkgoldenrod;}
+        article:nth-child(3){background-color:darkcyan;}
+        article:nth-child(4){background-color:tomato;}
+
+
+        #btn{position:fixed;
+            top:40%;
+            right:0;}
+
+        #btn li{width:15px;
+                    height:15px;
+                    margin:30px;
+                    border-radius:50px;
+                    background-color:#fff;
+                    opacity:0.6;
+                    transition:0.5s;}
+
+        #btn li:hover,#btn li.on{opacity:1;
+                                    transform:scale(1.5);}
+    </style>
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script src="../jquery-ui.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            var $window_height = $(window).height();
+            var $btn = $("#btn li");
+            var $top = 0;
+
+            $("body").css("height",$window_height);
+
+            //1. 사이즈를 줄였을때 버튼의 색상 유지하기
+            $(window).resize(function(){
+                var $window_height = $(window).height();
+                $("body").css("height",$window_height);
+
+                var $click_1 = $btn.eq(0).hasClass("on");
+                var $click_2 = $btn.eq(1).hasClass("on");
+                var $click_3 = $btn.eq(2).hasClass("on");
+                var $click_4 = $btn.eq(3).hasClass("on");
+
+
+                // 첫번째는 새로고침을 하던 클릭을 하던 최상단으로
+                //이동하기 때문에 위치 계산 안해도됨
+
+                /*if($cilck_1 == true){
+                    var $top = $window_height*0;
+                    $("section").css("top",$top+"px");
+                }*/
+
+
+                if($click_2 == true){
+                    var $top = $window_height*-1;
+                    $("section").css("top",$top+"px");
+                }else if($click_3 == true){
+                    var $top = $window_height*-2;
+                    $("section").css("top",$top+"px");
+                }else if($click_4 == true){
+                    var $top = $window_height*-3;
+                    $("section").css("top",$top+"px");
+                }
+             });
+            //1. 사이즈를 줄였을때 버튼의 색상 유지하기 끝
+
+            //2.버튼을 클릭할때 해당하는 페이지로 이동
+            $btn.eq(0).click(function(){
+                $btn.removeClass("on");
+                $(this).addClass("on");
+
+                var $window_height = $(window).height();
+                var $top = $window_height*0;
+
+                $("section").stop().animate({"top":$top+"px"},800,"linear");
+            });
+
+            $btn.eq(1).click(function(){
+                $btn.removeClass("on");
+                $(this).addClass("on");
+
+                var $window_height = $(window).height();
+                var $top = $window_height*-1;
+
+                $("section").stop().animate({"top":$top+"px"},800,"linear")
+            });
+
+            $btn.eq(2).click(function(){
+                $btn.removeClass("on");
+                $(this).addClass("on");
+
+                var $window_height = $(window).height();
+                var $top = $window_height*-2;
+
+                $("section").stop().animate({"top":$top+"px"},800,"linear");
+            });
+
+            $btn.eq(3).click(function(){
+                $btn.removeClass("on");
+                $(this).addClass("on");
+
+                var $window_height = $(window).height();
+                var $top = $window_height*-3;
+
+                $("section").stop().animate({"top":$top+"px"},800,"linear");
+            });
+
+            //2.버튼을 클릭할때 해당하는 페이지로 이동 끝
+        });
+    </script>
+</head>
+<body>
+   <section>   <!-- fullpage와 같음 -->
+        <article>article 1</article>
+        <article>article 2</article>
+        <article>article 3</article>
+        <article>article 4</article>
+    </section>
+
+    <div id ="btn">
+        <ul>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+</body>
+</html>

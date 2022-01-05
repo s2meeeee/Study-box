@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        img{width:100%;}
+        .clearfix::after{content:""; display:block; clear:both;}
+
+
+        #slide{width:100%;
+                height:670px;}
+
+        #slide li{width:100%;
+                height:670px;
+                position:absolute;
+                display:none;}
+
+        #slide li:nth-child(1){display:block;}
+
+        #btn li{width:10px;
+                height:10px;
+                border-radius: 50px;
+                margin:25px;
+                background-color:royalblue;
+                float:left;
+                transition:0.8s;}
+
+        #btn ul{width:240px;
+                height:60px;
+                margin:0 auto;
+                background-color:white;
+                }
+
+        #btn li:hover,#btn li.on{transform:scale(1.5);
+                                background-color:tomato;} /*hover,on은 띄어쓰기하지않는다. 띄어쓰기하면 형제 */
+
+
+    </style>
+
+
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            //첫번째 버튼을 클릭할때 첫번째 이미지 나오기
+            /*$("#btn li").eq(0).click(function(){
+                $("#slide li").fadeOut(); //전체의 li이가 선택되는 부분이므로 먼저 써준다. 
+                $("#slide li").eq(0).fadeIn();
+
+                $("#btn li").removeClass("on");
+                $(this).addClass("on");
+                //버튼 첫째를 누르면 slide는 다 사라진 후 첫번째 사진만 나온다.
+                
+            });
+
+            //두번째 버튼을 클릭할때 두번째 이미지 나오기
+            $("#btn li").eq(1).click(function(){
+                $("#slide li").fadeOut(); 
+                //이미지 전부 서서히 사라짐(z-index:auto)때문에 이미지가 겹쳐보여서 전부 사라지게 해야함
+                $("#slide li").eq(1).fadeIn(); 
+                //클릭한 버튼의 순번에 맞도록 이미지가 나옴
+
+                $("#btn li").removeClass("on"); 
+                //출력한 이미지의 순번에 맞춰서 버튼한테 색상이 들어가야되고
+                //겹쳐보이면 안되기 때문에 모든 btn한테 .on을 제거함
+                $(this).addClass("on");
+                //첫번째 버튼으 클릭한것만 .on이 추가됌
+                
+            });
+
+            $("#btn li").eq(2).click(function(){
+                $("#slide li").fadeOut();
+                $("#slide li").eq(2).fadeIn();
+
+                $("#btn li").removeClass("on")
+                $(this).addClass("on")
+            });
+
+            $("#btn li").eq(3).click(function(){
+                $("#slide li").fadeOut();
+                $("#slide li").eq(3).addClass();
+
+                $("#btn li").removeClass("on");
+                $(this).addClass("on");
+            });*/
+
+
+
+            //두번째 방법 : 버튼한테 색상이 있고 이미지가 나와있으면 클릭이벤트가 실행이됐고
+            //              제이쿼리 실행이 끝난상황 반대로 버튼에 색상이없고 이미지가 나와있지 않다면
+            //              클릭이벤트와 제이쿼리가 실행하지 않았다는 것
+
+
+            //이벤트 밖에 작성된 변수명선언은 전체적인 제이쿼리 script에서 사용할때 쓰는 변수명(공통으로 쓰는것)
+            var $btn = $("#btn li");
+            var $slide = $("#slide li");
+
+            $btn.click(function(){ //이벤트 속에 작성된 변수명선언은 오로지 클릭 이벤트를 사용할때 쓰는 변수명
+                var $click =$(this).hasClass("on");
+                var $Idx = $(this).index();
+
+                if($click != true){ //버튼한테 색상 없음
+                    $slide.fadeOut();
+                    $slide.eq($Idx).fadeIn();
+
+                    $btn.removeClass("on")
+                    $(this).addClass("on")
+
+                }
+            });
+
+            
+            
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <div id="slide">
+        <ul>
+            <li><img src="img/1.jpg" alt=""/></li>
+            <li><img src="img/2.jpg" alt=""/></li>
+            <li><img src="img/3.jpg" alt=""/></li>
+            <li><img src="img/4.jpg" alt=""/></li>
+        </ul>
+
+    </div>
+
+    <div id="btn">
+        <ul class="clearfix">
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

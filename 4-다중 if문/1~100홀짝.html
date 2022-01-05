@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script>
+        //두개의 변수선언
+        var a = Number(prompt('',''));
+        var b = 0; //홀짝연산해서 담을 그릇
+        
+        //연산시작
+        b=a%2;
+        
+        
+        if(a<=0 || a>0){  
+            if(a>0 && a<=100){ 
+                if(b==0){
+                   alert("짝수입니다.");
+                }else{
+                    alert("홀수 입니다.");
+                }  
+                
+            }else{
+                alert("1~100이 아닙니다.");    
+            }  
+            
+        }else{
+            alert("숫자가 아닙니다.");
+        }
+    
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

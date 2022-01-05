@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        //변수명 선언
+        var a = Number(prompt('',''));
+        
+        //연산을 할 필요가없는 구문
+        //0과 음수양수만 판단해주면되기때문에
+        
+        if(a==0){ //0을 걸러줘야함(0은 아무것도 아니기 때문에 양수/음수 둘 다 아님)
+           alert("0입니다.");
+        }else if(a>0){ //양수 판단
+            alert("양수입니다.");
+        }else if(a<0){ //음수판단
+            alert("음수입니다.");
+        }else{
+            alert("숫자가 아닙니다.");
+        }
+    
+    </script>
+
+
+
+</head>
+
+
+
+<body>
+    
+</body>
+</html>

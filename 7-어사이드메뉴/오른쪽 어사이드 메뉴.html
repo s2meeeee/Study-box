@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        boby{width:100%;
+            overflow:hidden;}
+        
+        button{width:52px;
+                height:132px;
+                background-color:black;
+           
+                outline:none;
+                border:none;
+                cursor:pointer;
+                background-image:url("img/btn_open.png");
+                }
+        
+        #aside_wrap::after{content""; display:block; clear:both;}
+        
+        #aside_wrap{width:252px;
+                    height:600px;
+                    background-color:dimgrey;
+                    float:right;
+                    
+                    }
+        
+        aside{width:200px;
+            height:600px;
+            background-color:darkslategrey;
+            position:absolute;
+            left:52px;
+            }
+    
+    
+    </style>
+</head>
+<body>
+
+   
+    <div id="aside_wrap" class="clearfix">
+       
+       
+       <button></button>
+        <aside >
+            <ul>
+                <li><img src="img/01_aside.png" alt="" /></li>
+                <li><img src="img/02_aside.png" alt="" /></li>
+                <li><img src="img/03_aside.png" alt="" /></li>
+            </ul>
+        </aside>
+        
+        
+        <!--이미지에게 변화를 주고싶다. 하면 css로 주면된다.수정이 가능해서-->
+    </div>
+</body>
+</html>

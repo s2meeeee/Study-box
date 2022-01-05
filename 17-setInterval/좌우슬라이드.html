@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        img{width:100%; display:block;}
+        .clearfix::after{content:""; display: block; clear:both;}
+
+        #slide{width:1280px;
+            height:720px;
+            margin:50px auto;
+            overflow:hidden;}
+
+        #slide ul{width:3840px;/*가로 좌우슬라이드기 때문에 이미지의 가로를 다 합쳐줌*/
+                height:720px;
+                position:relative;
+                left:0;}/*ul을 기준으로 만들어주기 위해 모든 li는 left :0에서 시작*/
+
+        #slide li{position:relative;
+                    float:left;}
+
+        #slide li h3{position:absolute;
+                    font-size:30px;
+                    padding:30px 100px;
+                    background-color:#fff;
+                    opacity: 0.6;
+                    top:42%;
+                    left:38%}
+    </style>
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            //lenght -> 선택자의 개수
+            var $Img_idx = $("#slide ul li").length;
+            var $Img = 0;
+
+            setInterval(function(){
+                if($Img <img_idx-1){
+                    $Img++;
+                }else{
+                    $Img = 0;
+                }
+
+                var $slide = $Img*(-1280)+"px";
+
+                $("#slide ul").stop().animate({"left":$slide},800);
+            },3000);
+        });
+        
+    </script>
+</head>
+<body>
+    <div id = "slide"><!--화면에서 보여지게되는 영역-->
+        <ul class="clearfix"><!--이미지 전체를 감싸는 박스-->
+            <li>
+                <h3>이미지 1</h3>
+                <img src="1.jpg" alt=""/>
+            </li>
+
+            <li>
+                <h3>이미지 2</h3>
+                <img src="2.jpg" alt=""/>
+            </li>
+
+            <li>
+                <h3>이미지 3</h3>
+                <img src="3.jpg" alt=""/>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        a{text-decoration:none; color:inherit;}
+        .clearfix::after{content:""; display: block; clear: both;}
+        
+        #aside_wrap{width:100%;
+                    height:320px;
+                    background-color:white;
+                    position:fixed;
+                    z-index:999;
+                    bottom:0;
+                    border-top:2px solid #000;
+                    box-sizing:border-box;/*보더또한 내가 만든 영역안에 들어가라라는 명령어*/
+                    bottom:-280px;
+                    transition:0.8s;} 
+        
+        
+        aside{width:100%;
+            height:40px;
+            background-color:#f2f2f2;}
+        
+        aside ul{width:1200px;
+                margin:0 auto;}
+        
+        aside li{width:140px;
+                height:40px;
+                text-align: center;
+                line-height:40px;
+                font-size:13px;
+                float:left;
+                }
+        
+        button{float:right;
+                width:40px;
+                height:40px;
+                background-image:url("img/open.png");
+                background-position: center;
+                outline:none;
+                border:none;
+                cursor:pointer;
+                transition:0.5s;}
+        
+        aside li span{border-right:1px solid #000;
+                        padding:0 30px 0 10px;}/*상 0 하0 좌10 우 30*/
+        
+        section{height:1200px;}
+        
+    
+    
+    
+    
+    
+    </style>
+    
+    <script src="../../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            var a = 0;//클릭수를 담을 변수명
+            var b = 0;//홀짝을 담을 담수명
+            
+            $("button").on("click",function(){
+                a++;
+                b=a%2;
+                
+                if(b==1){
+                   $("#aside_wrap").css("bottom","0");
+                    $("button").css("background-image","url(img/close.png)");
+                   }else{
+                       $("#aside_wrap").css("bottom","-280px");
+                       $("button").css("background-image","url(img/open.png)");
+                   }
+            });
+        });
+    
+    </script>
+</head>
+<body>
+    <div id="aside_wrap">
+        <aside>
+            <ul class="clearfix">
+                <li>
+                    <a href="#">
+                        <img src="img/1.jpg" alt="" />
+                        <span>오늘 본 상품</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#">
+                        <img src="img/2.jpg" alt="" />
+                        <span>찜리스트</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#">
+                        <img src="img/3.jpg" alt="" />
+                        <span>장바구니</span>
+                    </a>
+                </li>
+                
+                <button></button>
+            </ul>
+        </aside>
+    </div>
+    
+    <section></section> <!--세로스크롤 용-->
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+	<style>
+		*{margin:0; padding:0;}
+
+		div{width:100px;
+			height:100px;
+			background-color:#123456;}
+	</style>
+
+	<script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+	<script src="../jquery-ui.min.js" type="text/javascript" text="javascript"></script>
+	<script>
+		$(function(){
+			
+			
+			$("div").click(function(){
+				$(this).stop().animate({"margin-left":"200px","background-color":"#987654"},1000,"easeOutBounce"
+				,function(){
+					$(this).stop().animate({"margin-left":"0","background-color":"#ff0000"},1000,"easeOutBounce");
+				});
+			});
+
+			/*
+			$("div").click(function(){
+				$(this).css("margin-left","200px");
+			});*/
+
+			/*
+				$("div").hover(function(){ //마우스를 올렸을때랑 떼었을때(두가지의 행동이 일어남)
+				$(this).stop().animate({"margin-left":"200px"},1000,"linear");
+			}
+			,function(){
+				$(this).stop().animate({"margin-left":"0"},1000,"linear");
+			});*/
+		});
+	</script>
+
+ </head>
+ <body>
+  <div></div>
+ </body>
+</html>

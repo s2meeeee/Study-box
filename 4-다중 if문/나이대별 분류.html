@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script>
+        var a =Number(prompt('',''));
+    
+        
+        if(a>0 && a<=100){ //1~100찾기
+           alert("1~100 입니다.");
+            
+            if(a>=1 && a<30){
+               alert("20대");
+            }else if(a>=30 && a<40){
+                alert("30대");
+            }else if(a>=40 && a<50){
+                alert("40대");
+            }else{
+                alert("50대 이상입니다.");
+            }
+            
+        }else if(a<=0 || a>100){ //중간에 1~100이 있으므로 또는으로 음수와 100이상을 없애준다. **또는이란 중간에 없어야할것이잇을때쓴다
+            alert("1~100이 아닙니다.");
+        }else{
+            alert("숫자가아닙니다.");
+        }
+    
+    </script>
+    
+    
+</head>
+<body>
+    
+</body>
+</html>

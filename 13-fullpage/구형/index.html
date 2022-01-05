@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../asd/jquery.fullpage.css" rel="stylesheet" type="text/css">
+
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+
+        .section{font-size:80px;
+                text-align: center;}
+
+        .section:nth-child(1){background-color:teal;}
+        .section:nth-child(2){background-color:steelblue;}
+        .section:nth-child(3){background-color:salmon;}
+
+        #btn{position:fixed;
+            top:40%;
+            right:0;}
+
+            #btn li{width:15px;
+                    height:15px;
+                    margin:30px;
+                    border-radius:50px;
+                    background-color:#fff;
+                    opacity:0.6;
+                    transition:0.5s;}
+
+            #btn li:hover,#btn li.on{opacity:1;
+                                    transform:scale(1.5);}
+    </style>
+    <script src="../../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script src="../asd/jquery.fullpage.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            //세로고침을 하면 최상단으로 이동
+            $("#fullpage").fullpage({
+	        verticalCentered:false
+            });
+
+            var $btn =$("#btn li");  //전체적으로 사용하는 볁수명
+            
+            //1. 마우스휠을 사용할때 버튼에 색상 추가하기
+            $(window).on("mousewheel",function(){
+                var $body_1 = $("body").hasClass("fp-viewing-0");
+                var $body_2 = $("body").hasClass("fp-viewing-1");
+                var $body_3 = $("body").hasClass("fp-viewing-2");
+
+                if($body_1 == true){ //fp-viewing-0 class명 갖고있음
+                    $btn.removeClass("on");
+                    $btn.eq(0).addClass("on");
+                }else if($body_2 == true){
+                    $btn.removeClass("on");
+                    $btn.eq(1).addClass("on");
+                }else if($body_3 == true){
+                    $btn.removeClass("on");
+                    $btn.eq(2).addClass("on");
+                }
+                
+            });
+            //1. 마우스휠을 사용할때 버튼에 색상 추가하기 끝
+
+            //2.버튼을 클릭할때 해당하는 페이지로 이동
+            $btn.eq(0).click(function(){
+                $btn.removeClass("on");
+                $(this).addClass("on");
+
+                //첫번째 버튼을 클릭을 하거나 새로고침을해도
+                //최상단으로 이동하기 때문에 위치 계산할 필요없음
+                $("#fullpage").css({"transform": "translate3d(0px, 0px, 0px)"," transition": "all 700ms ease 0s"});
+            });
+
+            $btn.eq(1).click(function(){
+                $btn.removeClass("on");
+                $(this).addClass("on");
+
+                //현재 출력된 화면의 해상도 세로값 받아오기
+                var $window_height = $(window).height();
+                //받아온 세로값으로 위치를 계산함
+                var $top = $window_height*-1;
+
+                //이동하는 동작
+                $("#fullpage").css({"transform": "translate3d(0px,"+$top+"px, 0px)"," transition": "all 700ms ease 0s"});
+            });
+
+            $btn.eq(2).click(function(){
+                $btn.removeClass("on");
+                $(this).addClass("on");
+
+                var $window_height = $(window).height();
+                var $top = $window_height*-2;
+
+                $("#fullpage").css({"transform": "translate3d(0px,"+$top+"px, 0px)"," transition": "all 700ms ease 0s"});
+            });
+            //2.버튼을 클릭할때 해당하는 페이지로 이동 끝
+
+            //3. 사이즈를 줄였을때 버튼의 색상 유지하기
+            $(window).resize(function(){
+                var $click_1 = $btn.eq(0).hasClass("on");
+                var $click_2 = $btn.eq(1).hasClass("on");
+                var $click_3 = $btn.eq(2).hasClass("on");
+
+                if($click_1 == true){
+                    var $window_height = $(window).height();
+                    var $top = $window_height_height*0;
+
+                    $("#fullpage").css({"transform": "translate3d(0px,"+$top+"px, 0px)"," transition": "all 700ms ease 0s"});
+                }else if($click_2 == true){
+                    var $window_height = $(window).height();
+                    var $top = $window_height*-1;
+
+                    $("#fullpage").css({"transform": "translate3d(0px,"+$top+"px, 0px)"," transition": "all 700ms ease 0s"});
+                }else if($click_3 == true){
+                    var $window_height = $(window).height();
+                    var $top = $window_height*-2;
+
+                    $("#fullpage").css({"transform": "translate3d(0px,"+$top+"px, 0px)"," transition": "all 700ms ease 0s"});
+                }
+
+            });
+            //3. 사이즈를 줄였을때 버튼의 색상 유지하기 끝
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section">Section 1</div>
+        <div class="section">Section 2</div>
+        <div class="section">Section 3</div>
+    </div>
+
+    <div id ="btn">
+        <ul>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

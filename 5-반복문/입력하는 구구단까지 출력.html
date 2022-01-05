@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script>
+        var a=Number(prompt('','')); //입력하는 단의 수
+        var b=0; //변하지 않는 수 (앞자리 수)
+        var c=0; //변하는 수(뒷자리 수)
+        var d=0; //구구단 연산해서 담을 그릇
+        
+        
+        for(b=1; b<=a; b++){ //전체 구구단
+            for(c=1; c<=9; c++){ //구구단 연산
+                d=b*c;
+                document.write(b+"X"+c+"="+d+"입니다.<br/>");
+            }
+            document.write('<br/>')
+        }
+    
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

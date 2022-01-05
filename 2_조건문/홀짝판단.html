@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    
+    <script>
+        var a = Number(prompt('',''));
+        var b = 0; //홀짝판단을해서 담을 그릇
+        
+        //연산시작
+        b = a%2; //나머지 = a를 2로 나누었을때 (나눈나머지=%)라는뜻
+        
+        
+        if(a==0){ //0을 없애줘야함 (홀수,짝수가 아니기때매)
+           alert("0입니다.");
+        }else if(b==1){
+            alert("홀수입니다.");
+        }else if(b==0){
+            alert("짝수입니다.");     
+        }else{
+            alert("숫자가아닙니다.");
+        }
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

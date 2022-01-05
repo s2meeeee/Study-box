@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="dist/jquery.bxslider.css" rel="stylesheet" type="text/css">
+
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        .clearfix::after{content:""; display: block; clear: both;}
+
+        #slide_wrap{width:1200px;
+                    margin:0 auto;}
+
+        .slide li h2{position:absolute; 
+                    top:43%;
+                    left:40%;
+                    font-size:30px;
+                    padding:30px 50px;
+                    background:rgba(255,255,255,6);
+                    opacity:0;}
+
+        /* 이미지 썸네일 */
+
+        .bx-pager{margin-top:-40px;}
+        .bx-pager div{float:left;
+                    width:285px;
+                    margin-left:20px;}
+        .bx-pager div:nth-child(1){margin-left:0;}
+
+        .bx-pager div img{width:100%;}
+
+        /* 텍스트 애니메이션 */
+        .slide li.active h2{animation:moveUp 0.8s forwards;}
+        /* li이에게 액티브가 들어간다면 h2가실행되라 */
+
+        @Keyframes moveUp{
+            from{
+                opacity:0;
+                margin-top:40px;
+            }
+
+            to{
+                opacity:1;
+                margin-top:0;
+            }
+        }
+
+        
+
+
+    </style>
+
+    <script src="../../../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script src="dist/jquery.bxslider.js" type="text/javascript" text="javascript"></script>
+
+    <script>
+        $(function(){ //function()소괄호에는 이벤트함수를 넣는다. 이벤트함수는 변수명을 넣지않는다. **변수명없이 사용할수있다./플러그인으로 많이 사용한다.**
+            $('.slide').bxSlider({
+                pagerCustom:'.bx-pager',
+                //슬라이드가 실행되자마자 일어나는 일
+                onSliderLoad: function(currentIndex){ //currentIndex는 현재 순번이라는 말
+                    $(".slide li").eq(currentIndex + 1).addClass("active"); //+1 을 넣은이유는 첫번째이미지가 첫번째 li가 아닌 2번째다 *검사로 확인하면 보임
+                                                                            //그래서 인덱스순번에 +1을 해라라는 얘기
+                   
+                },
+                 //슬라이드가 진행된 후의 일어나는 일
+                onSlideAfter: function($slideElement){
+                    $slideElement.addClass("active").siblings().removeClass("active"); //siblings()는 형제라는 말 꼭 뒤에 s와 ()꼭 넣어야함
+                    //↑먼저 나오는 클래스에 애니메이션이 나오고 지금클래스와 형제들 모두 제거가 되라 라는 소리
+
+                },
+                auto:true
+                
+
+                //pagerType:'short',
+               //pagerShortSeparator:'&nbsp;-&nbsp;' //'&bsp;는 되도록 쓰지말것'
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id ="slide_wrap">
+        <ul class="slide">
+            <li>
+                <img src="img/1.jpg" alt="">
+                <h2>slide 01</h2>
+            </li>
+
+            <li>
+                <img src="img/2.jpg" alt="">
+                <h2>slide 02</h2>
+            </li>
+
+            <li>
+                <img src="img/3.jpg" alt="">
+                <h2>slide 03</h2>
+            </li>
+
+            <li>
+                <img src="img/4.jpg" alt="">
+                <h2>slide 04</h2>
+            </li>
+
+        </ul>
+
+        <!-- 이미지 썸네일만들기 -->
+        <div class="bx-pager bx-default-pager clearfix">
+            <div class="bx-pager-item">
+                <a href data-slide-index="0" class="bx-pager-link" >
+                    <img src="img/1.jpg" alt=""/>
+                </a>
+            </div>
+
+            <div class="bx-pager-item">
+                <a href data-slide-index="1" class="bx-pager-link" >
+                    <img src="img/2.jpg" alt=""/>
+                </a>
+            </div>
+
+            <div class="bx-pager-item">
+                <a href data-slide-index="2" class="bx-pager-link" >
+                    <img src="img/3.jpg" alt=""/>
+                </a>
+            </div>
+
+            <div class="bx-pager-item">
+                <a href data-slide-index="3" class="bx-pager-link" >
+                    <img src="img/4.jpg" alt=""/>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

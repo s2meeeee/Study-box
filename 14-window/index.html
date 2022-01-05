@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding:0;}
+
+        body{background-color:steelblue;}
+    </style>
+    <script src="../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script>
+        $(function(){
+            var a= $(window).height(); //해상도의 세로값을 가져옴
+            $("body").css("height",a); //가져온 세로값을 body에게 넣음
+            
+            var b=$("body").css("height");
+
+            alert(a+"와"+b);
+
+            alert(a);
+        });
+    </script>
+</head>
+<body>
+    <h1>앙뇽뇽</h1>
+</body>
+</html>

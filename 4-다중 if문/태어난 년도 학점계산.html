@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        var a = Number(prompt('태어난년도를 입력하세요',''));//태어난 년도를 적는 변수명
+        var b = 0; //연산뒤에 나올 변수명
+        
+        b=2021-a;
+        
+        
+        if(b>=0 && b<101){
+           /*alert("1~100입니다.");*/
+            
+            if(b>=20 && b<27){
+//               /*alert("대학생");*/
+                
+                
+                var c = Number(prompt('학점을 입력해주세요',''));
+                
+                if(c>=0 && c<4.6){ //0~4.5
+                    
+                    if(c>=4.0){
+                       alert("A");
+                    }else if(c>=3.0){
+                        alert("B");
+                    }else if(c>=2.0){
+                        alert("c")         
+                    }else if(c>=1.0){
+                        alert("D")
+                    }else{
+                        alert("재적")
+                    }
+                   
+                }else{
+                    ("올바른 학점이 아닙니다.");
+                }
+                
+            }else{
+                alert("대학생이아닙니다.");
+            }
+            
+            
+        }else if(a<=0 || a>101){
+            alert("1~100이 아닙니다.");
+        }else{
+            alert("숫자가 아닙니다.");
+        }
+        
+    
+    
+    
+    </script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,9 @@
+- 제이쿼리 파일 외부로 연동
+1. 새 파일 만들기 :ctrl+n
+2. 저장
+**확장자.js
+파일형식 javascript
+3. html파일에 가서 제이쿼리 구동하는 파일 연동한것 하단에
+똑같이
+<script src="내가 만든 파일" type="text/javascript" text="javascript">
+넣기!! 꼭 제이쿼리 구동하는 파일 작성하고 하단에 만들것!!

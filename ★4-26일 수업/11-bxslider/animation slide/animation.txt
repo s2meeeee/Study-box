@@ -1,0 +1,5 @@
+- animation의 속성들
+https://webclub.tistory.com/621
+
+- animation-fill-mode
+https://webzz.tistory.com/369

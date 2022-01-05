@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+
+    <style>
+        *{margin:0; padding:0;}
+
+        .slide{width:900px;}
+
+        .slide div img{width:100%;}
+    </style>
+    
+
+    <script src="../../jquery-3.6.0.min.js" type="text/javascript" text="javascript"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script>
+        $(function(){
+            $('.slide').slick({
+                dots:true,
+                customPaging: function(slide,index){    //변수명선언하지 않고도 바로 쓸수있는것 (slide, index)는 slickslide에서쓰는 명칭들  
+                    //.attr() -> 속성을 가져오거나 변경해주는 것
+                    //현재 슬라이드가 되고 있는 순번에서 img태그를 찾고
+                    // 그 속세엇 src속성을 가져 옴
+                    var $main = slide.$slides.eq(index).find("img").attr("src"); //$main은 ==("../img/1.png")같은의미가 되었다.
+                            // ^ ==$(".slide div").ep(0)과 같은 의미
+                    return "<img src="+$main+" alt=/>"; //return 내가 작성한 값 -> return은 내가 작성한 값으로 변환해줌 index란 웹의 순번
+                } 
+                    
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="slide">
+        <div><img src="../img/1.png" alt=""/></div>
+        <div><img src="../img/2.png" alt=""/></div>
+        <div><img src="../img/3.png" alt=""/></div>
+        <div><img src="../img/4.png" alt=""/></div>
+        <div><img src="../img/1.png" alt=""/></div>
+        
+        
+    </div>
+</body>
+</html>
